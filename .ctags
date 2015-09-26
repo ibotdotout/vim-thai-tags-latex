@@ -1,0 +1,12 @@
+--langdef=plaintex
+--langmap=plaintex:.tex
+--regex-plaintex=/\\label\{([^}]*)\}/\1/l,label/
+
+--regex-plaintex=/\\section\{([^}]*)\}/\1/s,section/
+--regex-plaintex=/\\subsection\{([^}]*)\}/\1/t,subsection/
+--regex-plaintex=/\\subsubsection\{([^}]*)\}/\1/u,subsubsection/
+--regex-plaintex=/\\cite\{([^}]*)\}/\1/c,citation/
+
+--regex-plaintex=/\\section\*\{([^}]*)\}/\1/s,section/
+--regex-plaintex=/\\subsection\*\{([^}]*)\}/\1/t,subsection/
+--regex-plaintex=/\\subsubsection\*\{([^}]*)\}/\1/u,subsubsection/
