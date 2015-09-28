@@ -2,11 +2,23 @@
 --langmap=plaintex:.tex
 --regex-plaintex=/\\label\{([^}]*)\}/\1/l,label/
 
---regex-plaintex=/\\section\{([^}]*)\}/\1/s,section/
---regex-plaintex=/\\subsection\{([^}]*)\}/\1/t,subsection/
---regex-plaintex=/\\subsubsection\{([^}]*)\}/\1/u,subsubsection/
---regex-plaintex=/\\cite\{([^}]*)\}/\1/c,citation/
-
---regex-plaintex=/\\section\*\{([^}]*)\}/\1/s,section/
---regex-plaintex=/\\subsection\*\{([^}]*)\}/\1/t,subsection/
---regex-plaintex=/\\subsubsection\*\{([^}]*)\}/\1/u,subsubsection/
+--regex-plaintex=/^\\tableofcontents/TABLE OF CONTENTS/s,toc/
+--regex-plaintex=/^\\frontmatter/FRONTMATTER/s,frontmatter/
+--regex-plaintex=/^\\mainmatter/MAINMATTER/s,mainmatter/
+--regex-plaintex=/^\\backmatter/BACKMATTER/s,backmatter/
+--regex-plaintex=/^\\bibliography\{/BIBLIOGRAPHY/s,bibliography/
+--regex-plaintex=/^\\part[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/PART \2/s,part/
+--regex-plaintex=/^\\part[[:space:]]*\*[[:space:]]*\{([^}]+)\}/PART \1/s,part/
+--regex-plaintex=/^\\chapter[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/CHAP \2/s,chapter/
+--regex-plaintex=/^\\chapter[[:space:]]*\*[[:space:]]*\{([^}]+)\}/CHAP \1/s,chapter/
+--regex-plaintex=/^\\section[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\. \2/s,section/
+--regex-plaintex=/^\\section[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\. \1/s,section/
+--regex-plaintex=/^\\subsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\. \2/s,subsection/
+--regex-plaintex=/^\\subsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\. \1/s,subsection/
+--regex-plaintex=/^\\subsubsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\.\. \2/s,subsubsection/
+--regex-plaintex=/^\\subsubsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\.\. \1/s,subsubsection/
+--regex-plaintex=/^\\includegraphics[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+--regex-plaintex=/^\\lstinputlisting[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+--regex-plaintex=/\\label[[:space:]]*\{([^}]+)\}/\1/l,label/
+--regex-plaintex=/\\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
+--regex-plaintex=/\\pageref[[:space:]]*\{([^}]+)\}/\1/p,pageref/
